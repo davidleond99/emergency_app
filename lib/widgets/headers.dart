@@ -27,18 +27,18 @@ class IconHeader extends StatelessWidget {
         color2: color2,
       ),
       Positioned(
-        top: -60,
-        left: -80,
+        top: -35,
+        left: -55,
         child: FaIcon(
           FontAwesomeIcons.plus,
-          size: 250,
+          size: 200,
           color: Colors.white.withOpacity(0.2),
         ),
       ),
       Column(
         children: [
           const SizedBox(
-            height: 80,
+            height: 60,
             width: double.infinity,
           ),
           Text(
@@ -60,11 +60,11 @@ class IconHeader extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 15,
+            height: 20,
           ),
           FaIcon(
             icon,
-            size: 80,
+            size: 70,
             color: Colors.white,
           ),
         ],
@@ -85,7 +85,7 @@ class _IconHeaderBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 300,
+      height: 250,
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(100)),
         gradient: LinearGradient(
