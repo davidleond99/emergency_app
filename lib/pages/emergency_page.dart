@@ -1,5 +1,5 @@
 import 'package:emergency_app/widgets/boton.dart';
-import 'package:emergency_app/widgets/headers.dart';
+import 'package:emergency_app/widgets/header_emergency.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -89,7 +89,6 @@ class EmergencyPage extends StatelessWidget {
         .toList();
 
     return Scaffold(
-      // body: PageHeader(),
       body: Stack(
         children: [
           Container(
@@ -104,13 +103,36 @@ class EmergencyPage extends StatelessWidget {
               ],
             ),
           ),
-          const IconHeader(
-            titulo: 'Asistencia Médica',
-            subtitulo: 'Haz solicitado',
-            icon: FontAwesomeIcons.circlePlus,
-          ),
+          _Header(),
         ],
       ),
+    );
+  }
+}
+
+class _Header extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        const IconHeader(
+          titulo: 'Asistencia Médica',
+          subtitulo: 'Haz solicitado',
+          icon: FontAwesomeIcons.circlePlus,
+        ),
+        Positioned(
+            right: -15,
+            top: 30,
+            child: RawMaterialButton(
+              onPressed: () => {print('as')},
+              shape: const CircleBorder(),
+              padding: const EdgeInsets.all(15.0),
+              child: const FaIcon(
+                FontAwesomeIcons.ellipsisVertical,
+                color: Colors.white,
+              ),
+            ))
+      ],
     );
   }
 }
