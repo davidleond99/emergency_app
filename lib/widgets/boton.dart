@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -32,38 +33,64 @@ class Boton extends StatelessWidget {
       child: Stack(
         children: [
           _BotonBackground(icon, colorIcon, colorGradientOne, colorGradientTwo),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(
-                height: 140,
-                width: 30,
-              ),
-              FaIcon(
-                smallIcon,
-                size: 50,
-                color: colorSmallIcon,
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-              Expanded(
-                child: Text(
-                  text,
-                  style: TextStyle(color: colorText, fontSize: 18),
-                ),
-              ),
-              const FaIcon(
-                FontAwesomeIcons.chevronRight,
-                color: Colors.white,
-              ),
-              const SizedBox(
-                width: 40,
-              ),
-            ],
+          FadeInLeft(
+            animate: true,
+            child: _Boton(
+                smallIcon: smallIcon,
+                colorSmallIcon: colorSmallIcon,
+                text: text,
+                colorText: colorText),
           )
         ],
       ),
+    );
+  }
+}
+
+class _Boton extends StatelessWidget {
+  const _Boton({
+    required this.smallIcon,
+    required this.colorSmallIcon,
+    required this.text,
+    required this.colorText,
+  });
+
+  final IconData smallIcon;
+  final Color colorSmallIcon;
+  final String text;
+  final Color colorText;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const SizedBox(
+          height: 140,
+          width: 30,
+        ),
+        FaIcon(
+          smallIcon,
+          size: 50,
+          color: colorSmallIcon,
+        ),
+        const SizedBox(
+          width: 20,
+        ),
+        Expanded(
+          child: Text(
+            text,
+            style: TextStyle(color: colorText, fontSize: 18),
+          ),
+        ),
+        const FaIcon(
+          FontAwesomeIcons.chevronRight,
+          color: Colors.white,
+        ),
+        const SizedBox(
+          width: 40,
+        ),
+      ],
     );
   }
 }
